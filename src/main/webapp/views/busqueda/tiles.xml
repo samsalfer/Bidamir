@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+
+       
+<tiles-definitions>
+
+
+
+	<definition name="busqueda/display" extends="master.page">	
+		<put-attribute name="title" value="Busqueda" />
+		<put-attribute name="body" value="/views/busqueda/display.jsp" />
+	</definition>
+	
+	<definition name="busqueda/edit" extends="master.page">	
+		<put-attribute name="title" value="Busqueda" />
+		<put-attribute name="body" value="/views/busqueda/edit.jsp" />
+	</definition>
+	
+	<definition name="busqueda/indexar" extends="master.page">	
+		<put-attribute name="title" value="Busqueda" />
+		<put-attribute name="body" value="/views/busqueda/indexar.jsp" />
+	</definition>
+	
+
+	
+</tiles-definitions>

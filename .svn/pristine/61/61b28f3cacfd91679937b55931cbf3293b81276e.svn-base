@@ -1,0 +1,290 @@
+package services;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+import javax.sql.rowset.serial.SerialException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
+import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.Session;
+import com.jcraft.jsch.SftpException;
+
+import repositories.ResultadoRepository;
+import domain.Contest;
+import domain.Estudio;
+import domain.Resultado;
+import domain.User;
+import forms.ResultadoForm;
+
+
+@Service
+@Transactional
+public class ResultadoService {
+
+	// Managed repository
+	// -----------------------------------------------------------------------
+
+	@Autowired
+	private ResultadoRepository resultadoRepository;
+
+	// Supporting services
+	// -----------------------------------------------------------------------
+	
+	@Autowired
+	private EstudioService estudioService;
+	
+	@Autowired
+	private UserService userService;
+	
+
+	// Constructors
+	// --------------------------------------------------------------------------------
+
+	// Simple CRUD methods
+	// ------------------------------------------------------------------
+
+	public Resultado create(Integer estudioId){
+		Resultado result;
+		Estudio aux;
+				
+		result = new Resultado();
+		aux = estudioService.findOne(estudioId);
+		
+		result.setEstudio(aux);
+		return result;
+	}
+	
+	public Resultado findOne(int resultadoId){
+		Resultado result;
+		User user;
+		
+		user = userService.findByPrincipal();
+		Assert.notNull(resultadoId);
+				
+		result = resultadoRepository.findOne(resultadoId);
+		
+		Assert.isTrue(user.equals(result.getEstudio().getUser()));
+		
+		Assert.notNull(result);
+		
+		return result;
+	}
+	
+	public void save(Resultado resultado){
+		Assert.notNull(resultado);
+		
+		resultadoRepository.save(resultado);
+		
+		
+		
+	}
+	
+	//Others methods
+	
+	public void delete(int resultadoId) {
+		Resultado resultado;
+		User user;
+		
+		user = userService.findByPrincipal();
+		Assert.notNull(resultadoId);
+				
+		resultado = findOne(resultadoId);
+		
+		Assert.isTrue(user.equals(resultado.getEstudio().getUser()));
+		
+		Assert.notNull(resultado);
+		
+		resultadoRepository.delete(resultado);
+	
+		
+	}
+	
+	
+	public Resultado findByPath (String path){
+		
+		Resultado result;
+		
+		result = resultadoRepository.findByPath(path);
+		
+		return result;
+		
+	}
+
+	
+	///forms
+	
+	public Resultado reconstruc(ResultadoForm resultadoForm) throws SerialException,
+	SQLException, IOException {
+
+			
+	Resultado resultado;
+
+	DateFormat df = new SimpleDateFormat("MM_dd_yyyy_HH_mm_ss");
+	Date today = Calendar.getInstance().getTime(); 
+	String reportDate = df.format(today);
+	
+	//Crea un resultado vacio
+	resultado = create(resultadoForm.getEstudioId());
+
+	
+	
+	
+	
+	//Envia datos desde un InputStream
+	
+	if(resultadoForm.getFile().getSize()!=0){
+		//Añado la ruta a la que enviaré los datos al servidor
+		resultado.setPath(resultado.getEstudio().getTitle()+"_"+reportDate+""+resultadoForm.getFile().getOriginalFilename());
+		enviardatos(resultadoForm.getFile().getInputStream(), resultado);
+	}
+	else{
+		escribirExcel(resultado, resultadoForm.getDatosAPredecir());
+		//Añado la ruta a la que enviaré los datos al servidor
+		resultado.setPath(resultado.getEstudio().getTitle()+"_"+reportDate+".xlsx");
+		 File file = new File("C:/Users/salasamuel46k/generado/"+resultado.getEstudio().getTitle()+".xlsx");
+		 InputStream input = new FileInputStream(file);
+		 enviardatos(input, resultado);
+	}
+	
+	//ruta anterior C:/Users/salasamuel46k/generado/  /home/openclinica/Bidamir/
+		
+	return resultado;
+}
+
+//	public ResultadoForm resultadoToForm(Resultado resultado) {
+//		Assert.notNull(resultado);
+//		ResultadoForm res;
+//		
+//		res = new ResultadoForm();
+//		
+//		res.setResultadoId(resultado.getId());
+//		res.setTitle(resultado.getTitle());
+//		
+//		res.setTipe(resultado.getTipe());
+//		res.setPath(resultado.getPath());
+//		
+//		
+//		return res;
+//	}
+
+	
+	//Copia un arcihvo local a un directorio remoto por SSH. Sirve para la otra app
+	public void enviardatos(InputStream cmfile, Resultado resultado) throws IOException{
+	    JSch jsch = new JSch();
+        Session session = null;
+        
+        Boolean enviado;
+        //recibo dato y paso a file.
+        InputStream input = cmfile;
+        
+        enviado = false;
+        
+        try {
+            session = jsch.getSession("esalud", "10.232.0.145", 23);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.setPassword("se41sap37");
+            session.connect();
+
+            Channel channel = session.openChannel("sftp");
+            channel.connect();
+            ChannelSftp sftpChannel = (ChannelSftp) channel;
+            String name = resultado.getPath();
+            sftpChannel.put(input, name);
+            sftpChannel.exit();
+            session.disconnect();
+            enviado=true;
+        } catch (JSchException e) {
+            e.printStackTrace();  
+        } catch (SftpException e) {
+            e.printStackTrace();
+        }
+        
+        Assert.isTrue(enviado);
+        
+	}
+	
+	public FileOutputStream escribirExcel(Resultado resultado, String [] nuevosDatos) throws IOException{
+		
+		 //Blank workbook
+        XSSFWorkbook workbook = new XSSFWorkbook(); 
+         
+        //Create a blank sheet
+        XSSFSheet sheet = workbook.createSheet("Employee Data");
+        //directorio local cambiar en el caso de cambiar de servidor web
+        File file = new File("C:/Users/salasamuel46k/generado/"+resultado.getEstudio().getTitle()+".xlsx");
+        file.createNewFile();
+        FileOutputStream out = new FileOutputStream(file);
+        
+         ArrayList<String> listaSinObjetivo;
+         // añado el objetivo al final de la lista.
+         listaSinObjetivo = new ArrayList<String>(resultado.getEstudio().getAtributosSeleccionados());
+         listaSinObjetivo.remove(resultado.getEstudio().getLabel());
+        //This data needs to be written (Object[])
+        String [] array;
+        array = listaSinObjetivo.toArray(new String [listaSinObjetivo.size()]);
+        Map<String, Object[]> data = new TreeMap<String, Object[]>();
+        data.put("1", array);
+        data.put("2", nuevosDatos);
+        
+          
+        //Iterate over data and write to sheet
+        Set<String> keyset = data.keySet();
+        int rownum = 0;
+        for (String key : keyset)
+        {
+            Row row = sheet.createRow(rownum++);
+            Object [] objArr = data.get(key);
+            int cellnum = 0;
+            for (Object obj : objArr)
+            {
+               Cell cell = row.createCell(cellnum++);
+               if(obj instanceof String)
+                    cell.setCellValue((String)obj);
+                else if(obj instanceof Integer)
+                    cell.setCellValue((Integer)obj);
+            }
+        }
+        try
+        {
+            //Write the workbook in file system
+            
+            workbook.write(out);
+            out.close();
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+		
+        return out;
+	}
+
+}

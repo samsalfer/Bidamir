@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2013 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+	<definition name="estudio/edit" extends="master.page">	
+		<put-attribute name="title" value="Edit an publicSession" />
+		<put-attribute name="body" value="/views/estudio/edit.jsp" />
+	</definition>
+	
+	<definition name="estudio/create" extends="master.page">	
+		<put-attribute name="title" value="Create a Study" />
+		<put-attribute name="body" value="/views/estudio/edit.jsp" />
+	</definition>
+	
+	<definition name="estudio/list" extends="master.page">	
+		<put-attribute name="title" value="List a study" />
+		<put-attribute name="body" value="/views/estudio/list.jsp" />
+	</definition>
+	
+	<definition name="estudio/display" extends="master.page">	
+		<put-attribute name="title" value="Display a study" />
+		<put-attribute name="body" value="/views/estudio/display.jsp" />
+	</definition>
+
+	<definition name="estudio/select" extends="master.page">	
+		<put-attribute name="title" value="Select type" />
+		<put-attribute name="body" value="/views/estudio/select.jsp" />
+	</definition>
+	
+	<definition name="estudio/finalizar" extends="master.page">	
+		<put-attribute name="title" value="Select type" />
+		<put-attribute name="body" value="/views/estudio/finalizar.jsp" />
+	</definition>
+	
+	<definition name="estudio/edit2" extends="master.page">	
+		<put-attribute name="title" value="Edit an publicSession" />
+		<put-attribute name="body" value="/views/estudio/edit2.jsp" />
+	</definition>
+	
+</tiles-definitions>

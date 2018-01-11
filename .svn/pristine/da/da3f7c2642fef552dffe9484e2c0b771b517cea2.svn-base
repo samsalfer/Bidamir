@@ -1,0 +1,16 @@
+estudio.creation_date		= Fecha de creación
+estudio.title				= Título
+estudio.tipe				= Tipo
+estudio.path				= Ruta
+estudio.delete				= Eliminar
+estudio.save				= Guardar
+estudio.create				= Crear un nuevo estudio
+estudio.display				= Detalles
+estudio.label				= Objetivo
+estudio.clasifiacion		= Clasificación
+estudio.asociacion			= Asociación
+estudio.cancel				= Cancelar
+estudio.next				= Siguiente
+estudio.discard				= Descartar
+estudio.result				= Resultados
+estudio.invalidFile			= Tipo de archivo incorrecto

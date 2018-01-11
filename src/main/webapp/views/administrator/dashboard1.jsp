@@ -1,0 +1,36 @@
+
+
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
+<%@taglib prefix="jstl"	uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<spring:message code="dashboard.listContests"/>
+<display:table name="contests" id="row" pagesize="5" requestURI="administrator/dashboard1.do" class="displaytag">
+	
+	<spring:message code="contest.name" var="name" />
+	<display:column title="${name}" property="[0].name" />
+
+	<spring:message code="contest.description" var="description" />
+	<display:column title="${description}" property="[0].description" />
+
+	<spring:message code="contest.holdingDate" var="holdingDate" />
+	<display:column title="${holdingDate}" property="[0].holdingDate" />
+
+	<spring:message code="contest.deadlineDate" var="deadlineDate" />
+	<display:column title="${deadlineDate}" property="[0].deadlineDate" />
+	
+	<spring:message code="contest.numberEssays" var="numberEssays" />
+	<display:column title="${numberEssays}" property="[1]" />
+	
+	<display:column>
+		<a href="publicSession/administrator/list.do?contestId=${row[0].id}"><spring:message code="administrator.publicSessions" /></a>
+		
+	</display:column>
+	
+</display:table>
+<br />

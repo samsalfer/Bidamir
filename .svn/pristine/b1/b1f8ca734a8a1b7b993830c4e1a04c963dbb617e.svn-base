@@ -1,0 +1,87 @@
+/* DomainEntity.java
+ *
+ * Copyright (C) 2014 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ * 
+ */
+
+package domain;
+
+import org.apache.solr.client.solrj.beans.Field;
+
+
+
+public class BusquedaXML {
+
+    @Field
+    String id;
+
+    @Field("cat")
+    String[] afirmacion;
+    
+    @Field("content_type")
+    String[] negacion;
+    
+    @Field("links")
+    String[] especulacion;
+    
+    @Field("description")
+    String texto;
+    
+    //Meto un nuevo String para poder realizar la previsualización de la búsqueda.
+    String previsualizacion;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String[] getAfirmacion() {
+		return afirmacion;
+	}
+
+	public void setAfirmacion(String[] afirmacion) {
+		this.afirmacion = afirmacion;
+	}
+
+	public String[] getNegacion() {
+		return negacion;
+	}
+
+	public void setNegacion(String[] negacion) {
+		this.negacion = negacion;
+	}
+
+	public String[] getEspeculacion() {
+		return especulacion;
+	}
+
+	public void setEspeculacion(String[] especulacion) {
+		this.especulacion = especulacion;
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+
+	public String getPrevisualizacion() {
+		return previsualizacion;
+	}
+
+	public void setPrevisualizacion(String previsualizacion) {
+		this.previsualizacion = previsualizacion;
+	}
+    
+    
+    
+}

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DocumentSet>
+	<Document type="Anamnesis" name="Anamnesis_104.txt.xml">
+		<text>ALERGIAS: Probable alergia a la Amoxicilina (rash cutáneo hace años). * MARCADORES VÍRICOS: 2012 Serología VHB, VHC y VIH negativos. Se indica vacunación hepatitis B en su Centro de Salud.</text>
+		<sentenceSet>	
+			<sentence id="S1.1">
+				<factual ref="F.1.1.1" begin="0" end="9"/>
+				<cue ref="C.1.1.1" type="Hedged" begin="10" end="18"/>
+				<xcope ref="X.1.1.1" type="Hedged" begin="19" end="43">
+					<refCueSet>
+					<refCue id="C.1.1.1"/>
+					</refCueSet>
+				</xcope>
+				<factual ref="F.1.1.2" begin="44" end="70"/>
+			</sentence>	
+			<sentence id="S1.2">
+				<factual ref="F.1.2.1" begin="72" end="99"/>
+				<xcope ref="X.1.2.1" type="Negation" begin="100" end="112"><refCueSet><refCue id="C.1.3.1"/> </refCueSet></xcope> 
+				
+				<xcope ref="X.1.2.2" type="Negation" begin="100" end="108"><refCueSet><refCue id="C.1.3.1"/> </refCueSet> 
+				</xcope>
+				<factual ref="F.1.2.2" begin="113" end="114"/>
+				<xcope ref="X.1.2.2" type="Negation" begin="115" end="117"><refCueSet><refCue id="C.1.3.1"/> </refCueSet>
+				</xcope>
+				<factual ref="F.1.2.3" begin="118" end="120"/>
+				<xcope ref="X.1.2.3" type="Negation" begin="121" end="123"><refCueSet><refCue id="C.1.3.1"/> </refCueSet>
+				</xcope>
+				<cue ref="C.1.2.1" type="Negation" begin="124" end="132"/>
+				<factual ref="F.1.2.4" begin="133" end="192"/>
+			</sentence>	
+		</sentenceSet>
+	</Document>
+</DocumentSet>
+	

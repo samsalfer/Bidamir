@@ -1,0 +1,29 @@
+# messages.properties
+#
+# Copyright (C) 2014 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+publicSession.commit.error		= Commit error, make sure that the StartDate is before than EndDate
+publicSession.startDate			= Start date
+publicSession.endDate			= End date
+publicSession.capacity			= Capacity
+publicSession.photo				= Photo
+publicSession.essayNumber		= Number of essays
+publicSession.save				= Save
+publicSession.cancel			= Back
+publicSession.commit.imagenType	= Image error
+publicSession.contest			= Contest
+publicSession.display			= Display
+publicSession.create			= Create new publicSession
+publicSession.edit				= Edit
+publicSession.addEssays			= Add esays
+
+essay.title						= Title
+essay.submissionDate			= Submission Date
+essay.display					= Display
+essay.contest.name				= Contest Name
+publicSession.full				= This Public Session is FULL! You cant add any Essays
+publicSession.chairman			= Chairman

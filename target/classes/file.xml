@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<sentencias paciente="04" fechaIngreso="201504041355" fechaFinal="201504061317" tipoResumen="largo" nSentencias="6" nPalabras="25" idDocumento="11">
+	<sentencia texto="Buen estado general." hojaEvolucion="P04_201504061317" idSentencia="6"/>
+	<sentencia texto="Ausencia de edemas en MMII." hojaEvolucion="P04_201504061317" idSentencia="10"/>
+	<sentencia texto="No refiere dolor en pantorrillas, ni empastamiento." hojaEvolucion="P04_201504061317" idSentencia="9"/>
+	<sentencia texto="Refiere dolor toracico atipico." hojaEvolucion="P04_201504061317" idSentencia="8"/>
+	<sentencia texto="Tolera decubito." hojaEvolucion="P04_201504061317" idSentencia="7"/>
+	<sentencia texto="No crepitantes, resto s/c." hojaEvolucion="P04_201504041355" idSentencia="9"/>
+</sentencias>

@@ -1,0 +1,14 @@
+# messages.properties
+#
+# Copyright (C) 2014 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+welcome.greeting.prefix 		= Greetings
+welcome.greeting.suffix			= !
+
+welcome.greeting.current.time	= Current time is 
+
+welcome.terms = On our website we use cookies to improve your user experience. If you visit our website, you will accept the use of cookies in the conditions established in this Cookies policy. This policy can be updated; therefore we invite you to regularly review it.

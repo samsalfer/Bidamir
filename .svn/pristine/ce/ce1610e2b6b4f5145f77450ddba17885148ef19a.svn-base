@@ -1,0 +1,32 @@
+# messages.properties
+#
+# Copyright (C) 2014 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+essay.title						= Title
+essay.submissionDate			= Submission Date
+essay.display					= Display
+essay.contest.name				= Contest Name
+essay.summary					= Summary
+essay.content					= Content
+essay.publish					= Publish
+essay.isPublished				= Is published
+
+essay.save						= Save
+essay.cancel					= Cancel
+essay.edit						= Edit 	
+
+error							= Error
+
+essay.deadline					= You can't submit or edit an essay if the deadline of the contest has expired.
+essay.same.title				= You can't submit or edit an essay if the title are the same of other essay in that contest.
+essay.published					= You can't edit an essay if this essay has published.
+
+essay.add						= Add to publicSessison			
+essay.displayPublicSeasons 		= See public seasons
+essay.publicSession				= Public Season
+essay.publicSession.startDate   = Public Season Start Date
+essay.publicSession.endDate		= Public Season End Date

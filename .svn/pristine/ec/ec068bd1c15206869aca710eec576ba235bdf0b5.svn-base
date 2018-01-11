@@ -1,0 +1,40 @@
+
+# messages_es.properties
+#
+# Copyright (C) 2013 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+userAccount.username						= Nombre de usuario
+userAccount.password						= Contraseña
+administrator.name							= Nombre
+administrator.surname						= Apellidos
+administrator.phone							= Telefono
+administrator.surname						= Apellidos
+administrator.email							= Email
+administrator.save							= Guardar
+administrator.cancel						= Cancel
+userAccount.password.repeat				= Repite la contraseña
+
+cashelick.commit.error					= Error al guardar
+register.commit.duplicatedUsername		= El nombre de usuario ya esta en uso	
+register.commit.password				= Error en la contraseña (no coinciden)
+register.commit.condition				= Tienes que aceptar las condiciones
+
+cashelick.commit.error					= Error al guardar
+terms.accept                			= Si te registras en el sistema, aceptas los terminos y condiciones
+
+dashboard.allContestOrderBySubmited		= Todos los concursos ordenados por inscripciones
+dashboard.authorWithMoreEssays			= Autores con mas ensayos
+dashboard.authorWithMoreEssaysPublished = Autores con mas ensayos publucados
+dashboard.authorWithLessEssaysPublished = Autores con menos ensayos publucados
+dashboard.avgEssaysByAuthor				= Media de ensayos por autor:
+dashboard.avgContestByOrganiser			= Media de concursos por organizador:
+dashboard.contestDuringLastMonth		= Concursos durante el mes anterior
+administrator.publicSessions			= Sesiones publicas
+
+dashboard.listContests					= Lista de los concursos con su sesión publica, ordenadas descendientemente por numero de ensayos.
+dashboard.presidents					= Lista de organizadores que deben ser presidentes, incluyendo el numero de sesiones publicas que presiden.
+dashboard.publicSessions				= Muestra las sesiones publicas con los presidentes asignados en orden descendiente por capacidad.

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DocumentSet>
+	<Document type="Anamnesis" name="Anamnesis_134.txt.xml">
+		<text>
+			AP: No alergias medicamentosas conocidas
+			Fumador hasta la actualidad de 2 paquetes al día hasta hace 1 aos que pasó a 1 paquete/día. Bebedor de 3-4 cervezas/día.
+			Otros FRCV: dislipemia (no revisado al respecto)
+			Neumonia en 2004 (Ingresado en Hospital José García)
+			En 2004 fue estudiado por pesadez y sintomas dispépticos. Según parece (no hay informes) le dijeron que tenia dos ulceras duodenales, gastritis cronica y hernia de hiato por deslizamiento. Le realizaron endoscopia oral y colonoscopia.
+			Nunca le han dicho que tuviera anemia porque no ha acudido tampoco al médico.
+			Situación basal actual: Cuidador de su madre encamada, refiere salir poco y haber descuidado la alimentación. 
+			
+		</text>
+		<sentenceSet>
+			<sentence id="S31.1">
+				<factual ref="F.31.1.1" begin="0" end="2"/><cue ref="C.31.1.1" type="Negation" begin="4" end="5"/><xcope ref="X.31.1.1" type="Negation" begin="7" end="39"><refCueSet><refCue id="C.31.1.1"/> </refCueSet></xcope>
+			</sentence>
+			<sentence id="S31.2">
+				<factual ref="F.31.2.1" begin="40" end="159"/>
+			</sentence>
+			<sentence id="S31.3">
+				<factual ref="F.31.3.1" begin="160" end="183"/><cue ref="C.31.3.1" type="Negation" begin="184" end="185"/><xcope ref="X.31.3.1" type="Negation" begin="187" end="206"><refCueSet><refCue id="C.31.3.1"/> </refCueSet></xcope><factual ref="F.31.3.2" begin="207" end="207"/>
+			</sentence>
+			<sentence id="S31.4">
+				<factual ref="F.31.4.1" begin="208" end="2"/>
+			</sentence>
+			<sentence id="S31.5">
+				<factual ref="F.31.5.1" begin="268" end="333"/><cue ref="C.31.5.1" type="Hedge" begin="331" end="337"/><cue ref="C.31.5.2" type="Negation" begin="339" end="346"/><factual ref="F.31.5.2" begin="347" end="347"/><xcope ref="X.31.5.1" type="Negation" begin="349" end="350"><refCueSet><refCue id="C.31.5.2"/> </refCueSet></xcope><factual ref="F.31.5.3" begin="352" end="358"/><factual ref="F.31.5.4" begin="364" end="392"/><xcope ref="X.31.5.2" type="Hedged" begin="382" end="402"><refCueSet><refCue id="C.31.5.1"/> </refCueSet></xcope><xcope ref="X.31.5.3" type="Hedged" begin="412" end="419"><refCueSet><refCue id="C.31.5.1"/> </refCueSet><factual ref="F.31.5.5" begin="414" end="422"/></xcope><xcope ref="X.31.5.4" type="Hedged" begin="424" end="450"><refCueSet><refCue id="C.31.5.1"/> </refCueSet><factual ref="F.31.5.6" begin="430" end="432"/></xcope><factual ref="F.31.5.7" begin="474" end="477"/>
+			</sentence>
+			<sentence id="S31.6">
+				<cue ref="C.31.6.1" type="Negation" begin="503" end="505"/><factual ref="F.31.6.1" begin="503" end="511"/><xcope ref="X.31.6.1" type="Negation" begin="507" end="540"><refCueSet><refCue id="C.31.6.1"/> </refCueSet></xcope><cue ref="C.31.6.2" type="Negation" begin="545" end="551"/><factual ref="F.31.6.2" begin="553" end="559"/>
+			</sentence>
+			<sentence id="S31.7">
+				<xcope ref="X.31.7.1" type="Negation" begin="571" end="579"><refCueSet><refCue id="C.31.6.2"/> </refCueSet></xcope><factual ref="F.31.7.1" begin="593" end="593"/>
+			</sentence>
+		</sentenceSet>
+	</Document>
+	
+	
+
+
+
+</DocumentSet>

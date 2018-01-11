@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+
+       
+<tiles-definitions>
+
+	<definition name="resumen/create" extends="master.page">	
+		<put-attribute name="title" value="Create a Result" />
+		<put-attribute name="body" value="/views/resultado/edit.jsp" />
+	</definition>
+	
+
+	<definition name="resumen/display" extends="master.page">	
+		<put-attribute name="title" value="Resumen" />
+		<put-attribute name="body" value="/views/resumen/display.jsp" />
+	</definition>
+	
+	<definition name="resumen/display2" extends="master.page">	
+		<put-attribute name="title" value="Resumen" />
+		<put-attribute name="body" value="/views/resumen/display2.jsp" />
+	</definition>
+
+	<definition name="resumen/list" extends="master.page">	
+		<put-attribute name="title" value="Mis resumenes" />
+		<put-attribute name="body" value="/views/resumen/list.jsp" />
+	</definition>
+	
+</tiles-definitions>

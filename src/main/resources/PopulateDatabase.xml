@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * PopulateDatabase.xml * * Copyright (C) 2014 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	<!-- Credit Cards -->
+
+	<bean id="creditCard1" class="domain.CreditCard">
+		<property name="holderName" value="holder 1" />
+		<property name="brandName" value="visa 1" />
+		<property name="number" value="4929442837163512" />
+		<property name="expirationMonth" value="5" />
+		<property name="expirationYear" value="2018" />
+		<property name="cvv" value="200" />
+	</bean>
+
+	<bean id="creditCard2" class="domain.CreditCard">
+		<property name="holderName" value="holder 2" />
+		<property name="brandName" value="visa 2" />
+		<property name="number" value="378282246310005" />
+		<property name="expirationMonth" value="6" />
+		<property name="expirationYear" value="2017" />
+		<property name="cvv" value="201" />
+	</bean>
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin1" />
+		<property name="password" value="bbad8d72c1fac1d081727158807a8798" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount6" class="security.UserAccount">
+		<property name="username" value="admin2" />
+		<property name="password" value="c4cefc53ca414d25294fd23b8fccd356" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="author1" />
+		<property name="password" value="d759079e18bc3ac1df3b65c28d68c4da" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUTHOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="author2" />
+		<property name="password" value="154b9422f6a17924755428b565a7fea8" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="AUTHOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="organiser1" />
+		<property name="password" value="7f9a8a9dfa22bb953d2eb6f354dc4c89" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ORGANISER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="organiser2" />
+		<property name="password" value="bf497cda67530ccedf622d70930c6ca7" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ORGANISER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Other domain beans come here -->
+
+	<!-- Administrator -->
+
+	<bean id="administrator1" class="domain.Administrator">
+		<property name="name" value="Administrator 1" />
+		<property name="surname" value="bad1" />
+		<property name="email" value="administrator1@gmail.com" />
+		<property name="phone" value="955955955" />
+		<property name="homePage" value="http://acmeAdmin1.com" />
+		<property name="userAccount" ref="userAccount1" />
+	</bean>
+
+	<bean id="administrator2" class="domain.Administrator">
+		<property name="name" value="Administrator 2" />
+		<property name="surname" value="admin2" />
+		<property name="email" value="administrator2@gmail.com" />
+		<property name="phone" value="945955911" />
+		<property name="homePage" value="http://acmeAdmin2.com" />
+		<property name="userAccount" ref="userAccount6" />
+	</bean>
+
+	<!-- Authors -->
+
+	<bean id="author1" class="domain.Author">
+		<property name="name" value="Author 1" />
+		<property name="surname" value="author1" />
+		<property name="email" value="author1@gmail.com" />
+		<property name="phone" value="685454658" />
+		<property name="birthDate" value="02/20/1992" />
+		<property name="nationality" value="Española" />
+		<property name="homePage" value="http://acmeauth1.com" />
+		<property name="userAccount" ref="userAccount2" />
+		<property name="creditCard" ref="creditCard2" />
+		<property name="essays">
+			<list>
+				<ref bean="essay1" />
+				<ref bean="essay2" />
+				<ref bean="essay4" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="author2" class="domain.Author">
+		<property name="name" value="Author 2" />
+		<property name="surname" value="author2" />
+		<property name="email" value="author2@gmail.com" />
+		<property name="phone" value="645454658" />
+		<property name="birthDate" value="06/08/1992" />
+		<property name="nationality" value="Inglesa" />
+		<property name="homePage" value="http://acmeauth2.com" />
+		<property name="userAccount" ref="userAccount3" />
+		<property name="creditCard" ref="creditCard1" />
+		<property name="essays">
+			<list>
+				<ref bean="essay3" />
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- Organisers -->
+
+	<bean id="organiser1" class="domain.Organiser">
+		<property name="name" value="Organiser 1" />
+		<property name="surname" value="organiser1" />
+		<property name="email" value="organiser1@gmail.com" />
+		<property name="phone" value="605454658" />
+		<property name="birthDate" value="06/08/1992" />
+		<property name="nationality" value="Inglesa" />
+		<property name="homePage" value="http://acmeOrga1.com" />
+		<property name="userAccount" ref="userAccount4" />
+		<property name="creditCard" ref="creditCard1" />
+		<property name="contests">
+			<list>
+				<ref bean="contest1" />
+				<ref bean="contest2" />
+				<ref bean="contest3" />
+				<ref bean="contest4" />
+				<ref bean="contest5" />
+			</list>
+		</property>
+		<property name="publicSessions">
+			<list>
+				<ref bean="publicSession1" />
+				<ref bean="publicSession2" />
+			</list>
+		</property> 
+	</bean>
+
+	<bean id="organiser2" class="domain.Organiser">
+		<property name="name" value="Organiser 2" />
+		<property name="surname" value="organiser2" />
+		<property name="email" value="organiser2@gmail.com" />
+		<property name="phone" value="623454658" />
+		<property name="birthDate" value="02/20/1992" />
+		<property name="nationality" value="Española" />
+		<property name="homePage" value="http://acmeOrga2.com" />
+		<property name="userAccount" ref="userAccount5" />
+		<property name="creditCard" ref="creditCard2" />
+		<property name="contests">
+			<list>
+				<ref bean="contest3" />
+				<ref bean="contest2" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Contest -->
+
+
+	<bean id="contest1" class="domain.Contest">
+		<property name="name" value="Contest 1" />
+		<property name="description" value="description1" />
+		<property name="holdingDate" value="04/04/2015" />
+		<property name="deadlineDate" value="04/03/2015" />
+		<property name="organisers">
+		<list>
+			<ref bean="organiser1" />
+			</list>
+		</property>
+		<property name="essays">
+			<list>
+			<ref bean="essay4" />
+			</list>
+		</property>
+		<property name="publicSessions">
+			<list>
+				<ref bean="publicSession1" />
+			</list>
+		</property> 
+	</bean>
+
+
+	<bean id="contest2" class="domain.Contest">
+		<property name="name" value="Contest 2" />
+		<property name="description" value="description2" />
+		<property name="holdingDate" value="05/05/2015" />
+		<property name="deadlineDate" value="05/04/2015" />
+		<property name="organisers">
+		<list>
+			<ref bean="organiser1" />
+			<ref bean="organiser2" />
+			</list>
+		</property>
+		<property name="essays">
+			<list>
+				<ref bean="essay1" />
+				<ref bean="essay2" />
+				<ref bean="essay3" />
+			</list>
+		</property>
+		<property name="publicSessions">
+			<list>
+				<ref bean="publicSession2" />
+			</list>
+		</property> 
+	</bean>
+
+	<bean id="contest3" class="domain.Contest">
+		<property name="name" value="Contest 3" />
+		<property name="description" value="description3" />
+		<property name="holdingDate" value="07/07/2012" />
+		<property name="deadlineDate" value="07/06/2012" />
+		<property name="result" value="The winner is Author2!" />
+		<property name="organisers">
+		<list>
+		<ref bean="organiser1" />
+			<ref bean="organiser2" />
+			</list>
+		</property>
+		<property name="essays">
+			<list>
+				
+			</list>
+		</property>
+	</bean>
+	
+	<!-- PublicSessions -->
+	
+		<bean id="publicSession1" class="domain.PublicSession">
+		<property name="capacity" value="2" />
+		<property name="essayNumber" value="2" />
+		<property name="startDate" value="02/02/2014" />
+		<property name="endDate" value="04/02/2014" />
+		<property name="chairman" ref="organiser1" />
+		<property name="contest" ref="contest1" />
+		<property name="essays">
+			<list>
+				<ref bean="essay4" />
+			</list>
+		</property> 
+	</bean>
+	
+	<bean id="publicSession2" class="domain.PublicSession">
+		<property name="capacity" value="5" />
+		<property name="essayNumber" value="5" />
+		<property name="startDate" value="02/02/2013" />
+		<property name="endDate" value="04/02/2013" />
+		<property name="chairman" ref="organiser1" />
+		<property name="contest" ref="contest2" />
+		<property name="essays">
+			<list>
+				<ref bean="essay2" />
+			</list>
+		</property> 
+	</bean>
+
+	<!-- Essays -->
+
+	<bean id="essay1" class="domain.Essay">
+		<property name="title" value="Essay 1" />
+		<property name="summary" value="summary1" />
+		<property name="submissionDate" value="02/02/2014" />
+		<property name="content" value="content1" />
+		<property name="isPublished" value="true" />
+		<property name="author" ref="author1" />
+		<property name="contest" ref="contest2" />
+		
+	</bean>
+	<bean id="essay2" class="domain.Essay">
+		<property name="title" value="Essay 2" />
+		<property name="summary" value="summary2" />
+		<property name="submissionDate" value="02/02/2014" />
+		<property name="content" value="content2" />
+		<property name="isPublished" value="false" />
+		<property name="author" ref="author1" />
+		<property name="contest" ref="contest2" />
+		<property name="publicSession" ref="publicSession2" />
+	</bean>
+
+	<bean id="essay3" class="domain.Essay">
+		<property name="title" value="Essay 3" />
+		<property name="summary" value="summary3" />
+		<property name="submissionDate" value="07/05/2012" />
+		<property name="content" value="content3" />
+		<property name="isPublished" value="true" />
+		<property name="author" ref="author2" />
+		<property name="contest" ref="contest2" />
+	</bean>
+	
+	<!--  Adding data -->
+
+	<bean id="contest4" class="domain.Contest">
+		<property name="name" value="Contest 4" />
+		<property name="description" value="description4" />
+		<property name="holdingDate" value="06/06/2015" />
+		<property name="deadlineDate" value="06/05/2015" />
+		<property name="organisers">
+		<list>
+			<ref bean="organiser1" />
+			</list>
+		</property>
+		<property name="essays">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="contest5" class="domain.Contest">
+		<property name="name" value="Contest 5" />
+		<property name="description" value="description5" />
+		<property name="holdingDate" value="07/07/2015" />
+		<property name="deadlineDate" value="07/06/2015" />
+		<property name="organisers">
+		<list>
+			<ref bean="organiser1" />
+			</list>
+		</property>
+		<property name="essays">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="essay4" class="domain.Essay">
+		<property name="title" value="Essay 4" />
+		<property name="summary" value="summary4" />
+		<property name="submissionDate" value="03/03/2015" />
+		<property name="content" value="content4" />
+		<property name="isPublished" value="true" />
+		<property name="author" ref="author1" />
+		<property name="contest" ref="contest1" />
+		<property name="publicSession" ref="publicSession1" />
+	</bean>
+	
+
+
+</beans>

@@ -1,0 +1,55 @@
+# messages.properties
+#
+# Copyright (C) 2014 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+
+
+contest.name = Name
+contest.description = Description
+contest.holdingDate = Holding Date
+contest.deadlineDate = Deadline Date
+contest.result = Result
+contest.organiser.name = Organiser Name
+
+contest.submit= Submit
+contest.essays= Essays
+
+
+contest.back = Back
+contest.save = Save
+contest.cancel = Cancel
+contest.create = Create
+contest.display = Display
+contest.nosepuededisplay = Can't display
+contest.edit = Edit
+contest.delete				= Delete
+contest.confirm.cancel		= Are you sure to delete?
+contest.error				= Search error, cannot be empty
+contest.back				= Back to search
+contest.back.to				= Back to my contests
+contest.putResult			= Put Result
+contest.nosepuedeputresult  = Can't put result because holding Date doesn't expired or contest have any essays or it isn't your contest.
+contest.confirm.delete 		= Are you sure to delete?
+
+
+error  = You can't save for one or more of this restrictions:
+
+
+contest.thereAreAPassDate = You can't create a contest with a passed Date.
+contest.cantSaveBecauseHoldingDateIsBeforeDeadline = You Can't Save because Holding Date is Before than Deadline Date.
+contest.cantSaveBecauseHaveResultButNoEssay = You Can't Save because you can't put a result if the contest have no essays.
+contest.cantSaveBecauseHaveResultButHoldingDateDontExpired = You can't save because you put a result while the holding date don't expired.
+contest.cantSaveBecauseDeadlineOrHoldingDateHaventBeenChangedToFuture = You can't save because you try to put a  Deadline Date or a Holding Date no to future.
+contest.nosepuedeputresult = Can't put result because holding Date doesn't expired or contest have any essays or it isn't your contest or now have one.
+
+contest.numberEssays 	= Essays Published
+
+contest.publicseassons = Public Seassons
+contest.addorganiser = Add organiser
+contest.seHaAnadidoConExito = Organiser has been add correctly.
+
+contest.essaysPublics 	 = Public Essays
